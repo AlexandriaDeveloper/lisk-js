@@ -13,30 +13,38 @@
  *
  */
 
-import { GET } from 'constants';
-import APIResource from '../apiResource';
+import { GET, PUT } from 'constants';
 import apiMethod from '../apiMethod';
+import APIResource from '../apiResource';
 
-export default class AccountResource extends APIResource {
+export default class NodeResource extends APIResource {
 	constructor(liskAPI) {
 		super(liskAPI);
+		this.path = '/nodes';
 
-		this.path = '/accounts';
-
-		this.get = apiMethod({
+		this.getConstants = apiMethod({
 			method: GET,
+			path: '/constants',
 		}).bind(this);
 
-		this.getMultisignatureGroup = apiMethod({
+		this.getStatus = apiMethod({
 			method: GET,
-			path: '/{address}/multisignature_groups',
-			urlParams: ['address'],
+			path: '/status',
 		}).bind(this);
 
-		this.getMultisignatureMembership = apiMethod({
+		this.getTransactions = apiMethod({
 			method: GET,
-			path: '/{address}/multisignature_memberships',
-			urlParams: ['address'],
+			path: '/transactions',
+		}).bind(this);
+
+		this.getForgingStatus = apiMethod({
+			method: GET,
+			path: '/status/forging',
+		}).bind(this);
+
+		this.updateForgingStatus = apiMethod({
+			method: PUT,
+			path: '/status/forging',
 		}).bind(this);
 	}
 }

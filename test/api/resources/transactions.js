@@ -56,12 +56,7 @@ describe('TransactionResouce', () => {
 		});
 
 		it('should have methods', () => {
-			return resource.should.have.keys(
-				'path',
-				'get',
-				'create',
-				'getUnsignedMultisignature',
-			);
+			return resource.should.have.keys('path', 'get', 'create');
 		});
 	});
 });

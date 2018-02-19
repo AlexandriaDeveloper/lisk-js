@@ -33,5 +33,15 @@ export default class DelegateResource extends APIResource {
 				offset: 101,
 			},
 		}).bind(this);
+
+		this.getForgers = apiMethod({
+			method: GET,
+		}).bind(this);
+
+		this.getForgingStatus = apiMethod({
+			method: GET,
+			path: '/{address}/forging_stats',
+			urlParams: ['address'],
+		}).bind(this);
 	}
 }

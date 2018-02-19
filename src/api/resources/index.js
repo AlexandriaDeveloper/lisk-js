@@ -17,6 +17,8 @@ export { default as AccountResource } from './accounts';
 export { default as BlockResource } from './blocks';
 export { default as DappResource } from './dapps';
 export { default as DelegateResource } from './delegates';
+export { default as NodeResource } from './nodes';
+export { default as PeerResource } from './peers';
 export { default as SignatureResource } from './signatures';
 export { default as TransactionResource } from './transactions';
 export { default as VoterResource } from './voters';

@@ -14,11 +14,11 @@
  */
 
 import APIResource from 'api/apiResource';
-import AccountResource from 'api/resources/accounts';
+import NodeResource from 'api/resources/nodes';
 
-describe('AccountResouce', () => {
+describe('NodeResouce', () => {
 	const defaultBasePath = 'http://localhost:1234';
-	const defaultPath = '/accounts';
+	const defaultPath = '/nodes';
 
 	let LiskAPI;
 	let resource;
@@ -31,12 +31,12 @@ describe('AccountResouce', () => {
 			randomizeNodes: () => {},
 			banActiveNodeAndSelect: () => {},
 		};
-		resource = new AccountResource(LiskAPI);
+		resource = new NodeResource(LiskAPI);
 	});
 
 	describe('#constructor', () => {
 		it('should throw error without LiskAPI input', () => {
-			return (() => new AccountResource()).should.throw(
+			return (() => new NodeResource()).should.throw(
 				'Require LiskAPI instance to be initialized.',
 			);
 		});
@@ -58,9 +58,11 @@ describe('AccountResouce', () => {
 		it('should have methods', () => {
 			return resource.should.have.keys(
 				'path',
-				'get',
-				'getMultisignatureGroup',
-				'getMultisignatureMembership',
+				'getConstants',
+				'getStatus',
+				'getTransactions',
+				'getForgingStatus',
+				'updateForgingStatus',
 			);
 		});
 	});

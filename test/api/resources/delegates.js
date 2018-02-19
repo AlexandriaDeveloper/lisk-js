@@ -56,7 +56,13 @@ describe('DelegateResouce', () => {
 		});
 
 		it('should have methods', () => {
-			return resource.should.have.keys('path', 'get', 'getStandby');
+			return resource.should.have.keys(
+				'path',
+				'get',
+				'getStandby',
+				'getForgers',
+				'getForgingStatus',
+			);
 		});
 	});
 });

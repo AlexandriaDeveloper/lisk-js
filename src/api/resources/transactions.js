@@ -29,10 +29,5 @@ export default class TransactionResource extends APIResource {
 		this.create = apiMethod({
 			method: POST,
 		}).bind(this);
-
-		this.getUnsignedMultisignature = apiMethod({
-			method: GET,
-			path: '/unsigned',
-		}).bind(this);
 	}
 }

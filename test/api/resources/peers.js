@@ -14,11 +14,11 @@
  */
 
 import APIResource from 'api/apiResource';
-import AccountResource from 'api/resources/accounts';
+import PeerResource from 'api/resources/peers';
 
-describe('AccountResouce', () => {
+describe('PeerResouce', () => {
 	const defaultBasePath = 'http://localhost:1234';
-	const defaultPath = '/accounts';
+	const defaultPath = '/peers';
 
 	let LiskAPI;
 	let resource;
@@ -31,12 +31,12 @@ describe('AccountResouce', () => {
 			randomizeNodes: () => {},
 			banActiveNodeAndSelect: () => {},
 		};
-		resource = new AccountResource(LiskAPI);
+		resource = new PeerResource(LiskAPI);
 	});
 
 	describe('#constructor', () => {
 		it('should throw error without LiskAPI input', () => {
-			return (() => new AccountResource()).should.throw(
+			return (() => new PeerResource()).should.throw(
 				'Require LiskAPI instance to be initialized.',
 			);
 		});
@@ -56,12 +56,7 @@ describe('AccountResouce', () => {
 		});
 
 		it('should have methods', () => {
-			return resource.should.have.keys(
-				'path',
-				'get',
-				'getMultisignatureGroup',
-				'getMultisignatureMembership',
-			);
+			return resource.should.have.keys('path', 'get');
 		});
 	});
 });
